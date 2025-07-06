@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes scrollEffect {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .scroll-effect {
+    animation: scrollEffect 1s ease-in-out forwards;
+    animation-delay: 0.5s; /* Adjust delay for each item */
+  }
