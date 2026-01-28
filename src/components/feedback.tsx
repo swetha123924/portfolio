@@ -1,31 +1,144 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { Mail, Send, User, MessageSquare } from 'lucide-react';
+import BackgroundLines from './BackgroundLines';
 
-const Feedback :React.FC = () => {
+const Feedback: React.FC = () => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
-    <article id="feedback" className='feedback bg-gradient-to-br from-gray-900 to-black text-white flex flex-col items-center justify-center p-4'>
-      <h1 className='text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent'>Feedback</h1>
-      <p className='text-lg text-center max-w-2xl mb-8 text-gray-300'>Your feedback is invaluable to me! Whether it's a suggestion, a compliment, or constructive criticism, I'd love to hear your thoughts. Let's grow together!</p>
-      <div className='w-full max-w-2xl bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-xl shadow-2xl'>
-        <div className='mb-6'>
-          <label htmlFor="name" className='block text-sm font-medium text-gray-300 mb-2'>Your Name</label>
-          <input type="text" id="name" placeholder="Enter your name" className='w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500' />
-        </div>
+    <section id="feedback" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: '#0f0b1f' }}>
+      {/* Animated Background Lines */}
+      <BackgroundLines />
 
-        <div className='mb-6'>
-          <label htmlFor="email" className='block text-sm font-medium text-gray-300 mb-2'>Your Email</label>
-          <input type="email" id="email" placeholder="Enter your email" className='w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500' />
-        </div>
+      {/* Background */}
+      <div className="absolute inset-0 grid-background opacity-20"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
-        <div className='mb-6'>
-          <label htmlFor="feedback" className='block text-sm font-medium text-gray-300 mb-2'>Your Feedback</label>
-          <textarea id="feedback" placeholder="Share your thoughts..." className='w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500' rows={5}></textarea>
-        </div>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.6 }}
+        className="relative z-10 max-w-4xl mx-auto"
+      >
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <div className="flex justify-center items-center gap-3 mb-4">
+            <Mail className="w-10 h-10 text-white" />
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+              Get In Touch
+            </h2>
+          </div>
+          <div className="h-1 w-24 bg-[#6049ea] mx-auto mb-6"></div>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Have a project in mind? Let's collaborate and create something amazing together.
+          </p>
+        </motion.div>
 
-        <button className='w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-purple-600 hover:to-blue-600 transition duration-300 transform hover:scale-105 shadow-lg'>Submit Feedback</button>
-      </div>
+        {/* Contact Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="glass p-8 sm:p-12 rounded-2xl"
+        >
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Name Input */}
+            <div>
+              <label htmlFor="name" className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
+                <User className="w-4 h-4" />
+                Your Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="John Doe"
+                required
+                className="w-full p-4 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-colors"
+              />
+            </div>
 
-      <p className='mt-8 text-sm text-gray-400 text-center max-w-2xl'>Your feedback will help me improve my skills and deliver better projects. Thank you for taking the time to share your thoughts!</p>
-    </article>
+            {/* Email Input */}
+            <div>
+              <label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
+                <Mail className="w-4 h-4" />
+                Your Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="john@example.com"
+                required
+                className="w-full p-4 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-colors"
+              />
+            </div>
+
+            {/* Message Input */}
+            <div>
+              <label htmlFor="message" className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
+                <MessageSquare className="w-4 h-4" />
+                Your Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Tell me about your project..."
+                required
+                rows={5}
+                className="w-full p-4 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-colors resize-none"
+              />
+            </div>
+
+            {/* Submit Button */}
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-[#6049ea] text-white font-semibold rounded-lg hover:bg-[#4a3bb8] transition-colors"
+            >
+              <Send className="w-5 h-5" />
+              Send Message
+            </motion.button>
+          </form>
+
+          {/* Contact Info */}
+          <div className="mt-8 pt-8 border-t border-white/10">
+            <p className="text-center text-gray-400 text-sm">
+              Or reach out directly at{' '}
+              <a href="mailto:swethasree630@gmail.com" className="text-white hover:underline">
+                swethasree630@gmail.com
+              </a>
+            </p>
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 };
 
