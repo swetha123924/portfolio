@@ -2,17 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github, Folder } from 'lucide-react';
-import band from './images/band.png';
-import e_commerce from './images/e-commerce.png';
-import movie from './images/movie_web.png';
-import recipe from './images/recipe_web.png';
-import bullwork from './images/bullwork.png';
-import currency from './images/currency.png';
-import bookmyshow from './images/bookmyshow.png';
-import swiggy from './images/swiggy.png';
-import calculator from './images/calculator.png';
-import calender from './images/calender.png';
-import digitalClock from './images/digitl_clock.png';
 import BackgroundLines from './BackgroundLines';
 
 const Projects: React.FC = () => {
@@ -20,77 +9,77 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
-      img: band,
+      img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop&q=80",
       link: "https://benevolent-croquembouche-b0289f.netlify.app/",
       title: "Band Website",
       desc: "A responsive band website built with React and Tailwind CSS.",
       tech: ["React", "Tailwind", "Vite"]
     },
     {
-      img: e_commerce,
+      img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=600&fit=crop&q=80",
       link: "https://silver-dragon-cd256d.netlify.app/",
       title: "E-Commerce Platform",
       desc: "An e-commerce platform with modern UI and seamless UX.",
       tech: ["React", "Node.js", "PostgreSQL"]
     },
     {
-      img: bullwork,
+      img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop&q=80",
       link: "https://harmonious-mousse-8f19ec.netlify.app/",
       title: "Bull Work Mobility",
       desc: "Professional mobility solutions platform.",
       tech: ["React", "TypeScript", "Tailwind"]
     },
     {
-      img: bookmyshow,
+      img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=600&fit=crop&q=80",
       link: "https://splendorous-horse-914e97.netlify.app/",
       title: "BookMyShow Clone",
       desc: "Ticket booking platform with seat selection.",
       tech: ["React", "Node.js", "Express"]
     },
     {
-      img: swiggy,
+      img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=600&fit=crop&q=80",
       link: "https://kaleidoscopic-mandazi-d08669.netlify.app/",
       title: "Swiggy Clone",
       desc: "Food delivery app with cart functionality.",
       tech: ["React", "REST API", "CSS"]
     },
     {
-      img: currency,
+      img: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&h=600&fit=crop&q=80",
       link: "https://starlit-belekoy-36ef82.netlify.app/",
       title: "Currency Converter",
       desc: "Real-time currency converter using live rates API.",
       tech: ["JavaScript", "API", "CSS"]
     },
     {
-      img: calculator,
+      img: "https://images.unsplash.com/photo-1611462985358-60d3498e0364?w=800&h=600&fit=crop&q=80",
       link: "https://willowy-chaja-ec2ec4.netlify.app/",
       title: "Calculator App",
       desc: "Functional calculator with scientific operations.",
       tech: ["JavaScript", "HTML", "CSS"]
     },
     {
-      img: calender,
+      img: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop&q=80",
       link: "https://prismatic-beijinho-36aa03.netlify.app/",
       title: "Calendar Widget",
       desc: "Interactive calendar with event management.",
       tech: ["React", "Date-fns", "CSS"]
     },
     {
-      img: digitalClock,
+      img: "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=800&h=600&fit=crop&q=80",
       link: "https://magnificent-paprenjak-2be860.netlify.app/",
       title: "Digital Clock",
       desc: "Real-time digital clock with timezone support.",
       tech: ["JavaScript", "CSS", "HTML"]
     },
     {
-      img: movie,
+      img: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&h=600&fit=crop&q=80",
       link: "https://willowy-bunny-87d6c2.netlify.app/",
       title: "Movie Database",
       desc: "Movie database to explore and track favorites.",
       tech: ["React", "TMDB API", "Tailwind"]
     },
     {
-      img: recipe,
+      img: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&h=600&fit=crop&q=80",
       link: "https://sprightly-piroshki-a47347.netlify.app/",
       title: "Recipe Finder",
       desc: "Recipe app to discover and share meals.",
@@ -99,7 +88,7 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: '#0f0b1f' }}>
+    <section id="projects" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden theme-section">
       {/* Animated Background Lines */}
       <BackgroundLines />
 
@@ -127,9 +116,9 @@ const Projects: React.FC = () => {
               Featured Projects
             </h2>
           </div>
-          <div className="h-1 w-24 bg-[#6049ea] mx-auto mb-6"></div>
+          <div className="h-1 w-24 bg-[var(--theme-accent)] mx-auto mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A showcase of 11+ full-stack applications demonstrating modern web development
+            Production websites, real-time UI features, and full-stack applications demonstrating modern web development
           </p>
         </motion.div>
 
@@ -148,9 +137,9 @@ const Projects: React.FC = () => {
                 <img
                   src={project.img}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
                 
                 {/* Overlay Effects */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -185,7 +174,7 @@ const Projects: React.FC = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3 bg-[#6049ea] text-white font-semibold rounded-lg hover:bg-[#4a3bb8] transition-all duration-300 btn-primary focus-ring"
+                  className="flex items-center justify-center gap-2 w-full py-3 bg-[var(--theme-accent)] text-white font-semibold rounded-lg hover:brightness-110 transition-all duration-300 btn-primary focus-ring"
                 >
                   <ExternalLink className="w-4 h-4" />
                   View Live
@@ -210,7 +199,7 @@ const Projects: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#6049ea] text-white font-semibold rounded-full hover:bg-[#4a3bb8] transition-colors"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--theme-accent)] text-white font-semibold rounded-full hover:brightness-110 transition-all"
             >
               <Github className="w-6 h-6" />
               View More on GitHub

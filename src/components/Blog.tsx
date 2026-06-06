@@ -57,7 +57,7 @@ const Blog: React.FC = () => {
   };
 
   return (
-    <section id="blog" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: '#0f0b1f' }}>
+    <section id="blog" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: 'var(--theme-bg)' }}>
       {/* Animated Background Lines */}
       <BackgroundLines />
 

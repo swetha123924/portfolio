@@ -57,7 +57,7 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: '#0f0b1f' }}>
+    <section id="testimonials" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: 'var(--theme-bg)' }}>
       {/* Animated Background Lines */}
       <BackgroundLines />
 

@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: '#0f0b1f' }}>
+    <footer className="relative border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden theme-section">
       {/* Animated Background Lines */}
       <BackgroundLines className="opacity-30" />
 
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
               <span className="ml-2 font-bold">Sree</span>
             </h3>
             <p className="text-gray-400 text-sm">
-              Full-Stack Developer passionate about creating elegant digital experiences.
+              Full-Stack Developer at Bermer Software, building production websites and real-time application interfaces.
             </p>
           </div>
 
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
                 className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
               >
                 <Mail className="w-4 h-4" />
-                swethasree630@gmail.com
+                cswetha061@gmail.com
               </a>
               <div className="flex gap-4 pt-2">
                 <a
