@@ -17,7 +17,7 @@ const Projects: React.FC = () => {
     },
     {
       img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=600&fit=crop&q=80",
-      link: "https://silver-dragon-cd256d.netlify.app/",
+      link: "https://swetha123924.github.io/E-commerce/",
       title: "E-Commerce Platform",
       desc: "An e-commerce platform with modern UI and seamless UX.",
       tech: ["React", "Node.js", "PostgreSQL"]

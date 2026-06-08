@@ -2,11 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import main from './images/main.jpeg';
-import { Github, Linkedin, Mail, ArrowDown, Sparkles, Briefcase, Globe2, Palette } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown, Sparkles, Briefcase, Globe2, Palette, Download } from 'lucide-react';
 import BackgroundLines from './BackgroundLines';
 
 const Home: React.FC = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  const resumeDownloadUrl = 'https://drive.google.com/uc?export=download&id=1uQirhCPHoHLVp7DE-iaTNPcNWG805Eml';
 
   const easing = [0.25, 0.1, 0.25, 1] as const;
 
@@ -33,7 +35,7 @@ const Home: React.FC = () => {
   const heroStats = [
     { value: '1+', label: 'Year at Bermer Software' },
     { value: '2', label: 'Live business websites' },
-    { value: '11+', label: 'Web applications' },
+    { value: '4', label: 'Web applications' },
   ];
 
   const expertise = [
@@ -111,7 +113,6 @@ const Home: React.FC = () => {
             </h1>
             <div className="h-1 w-24 bg-[var(--theme-accent)] mx-auto lg:mx-0"></div>
           </motion.div>
-￼
 
           <motion.div variants={itemVariants} className="space-y-4">
             <h2 className='text-xl sm:text-2xl lg:text-3xl font-light text-gray-300'>
@@ -152,6 +153,18 @@ const Home: React.FC = () => {
                 <ArrowDown size={20} />
               </motion.button>
             </a>
+
+            <a href={resumeDownloadUrl}>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className='px-8 py-4 bg-white text-[var(--theme-accent)] font-semibold rounded-full hover:bg-gray-100 transition-all flex items-center gap-2 shadow-lg shadow-black/20'
+              >
+                Download Resume
+                <Download size={20} />
+              </motion.button>
+            </a>
+
             <a href="#feedback">
               <motion.button
                 whileHover={{ scale: 1.05 }}
