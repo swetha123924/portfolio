@@ -2,13 +2,14 @@
   "name": "portfolio",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://swethasree.github.io/Portfolio",
+  "homepage": "https://swetha123924.github.io/portfolio/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
